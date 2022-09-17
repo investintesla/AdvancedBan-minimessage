@@ -32,7 +32,7 @@ public class UUIDManager {
     }
 
     /**
-     * Initially setup the uuid manager by determening which {@link FetcherMode} should be used
+     * Initially set up the uuid manager by determening which {@link FetcherMode} should be used
      * based on the configured preference and the servers capabilities.
      */
     public void setup() {
@@ -143,7 +143,7 @@ public class UUIDManager {
     }
 
     /**
-     * Gets a uuid from a name only if AdvancedBan
+     * Gets an uuid from a name only if AdvancedBan
      * already has the uuid/name mapping in memory.
      *
      * @param name the player name
@@ -154,7 +154,7 @@ public class UUIDManager {
     }
 
     /**
-     * Gets a name from a uuid only if AdvancedBan
+     * Gets a name from an uuid only if AdvancedBan
      * already has the uuid/name mapping in memory.
      *
      * @param uuid the uuid without hyphens
@@ -237,7 +237,7 @@ public class UUIDManager {
      */
     public enum FetcherMode {
         /**
-         * No UUID Fetcher is used. The Username will be treated as an UUID.<br>
+         * No UUID Fetcher is used. The Username will be treated as a UUID.<br>
          * <b>Recommended for:</b> Servers running in offline mode (cracked).
          */
         DISABLED,
@@ -252,7 +252,7 @@ public class UUIDManager {
         /**
          * Tries to resolve the UUID using the {@link #INTERN} fetcher and uses the
          * {@link #RESTFUL} fetcher as a fallback.<br>
-         * <b>Recommended for:</b> Spigot <green>mp; Bungeecord Servers running in online mode.
+         * <b>Recommended for:</b> Spigot &amp; Bungeecord Servers running in online mode.
          */
         MIXED,
 
