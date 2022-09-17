@@ -38,55 +38,55 @@ public class UpdateManager {
 
         if (!mi.contains(mi.getMessages(), "UnNote.Usage")) {
             try {
-                addMessage("Check:", "  Note: \"&cNotes &8» &7%COUNT%\"", 1);
+                addMessage("Check:", "  Note: \"<red>Notes <dark_gray>» <gray>%COUNT%\"", 1);
                 FileUtils.writeLines(new File(mi.getDataFolder(), "Messages.yml"), "UTF8", Arrays.asList(
                         "",
                         "# Automatically added by v2.2.1 update process",
                         "UnNote:",
-                        "  Usage: \"&cUsage &8» &7&o/unwarn [ID] or /unnote clear [Name]\"",
-                        "  NotFound: \"&cCould not find note #%ID%\"",
-                        "  Done: \"&7Note &a&o#%ID% &7was successfully deleted!\"",
-                        "  Notification: \"&e&o%OPERATOR% &7unnoted &c&o%NAME%\"",
+                        "  Usage: \"<red>Usage <dark_gray>» <gray><i>/unwarn [ID] or /unnote clear [Name]<!i>\"",
+                        "  NotFound: \"<red>Could not find note #%ID%\"",
+                        "  Done: \"<gray>Note <green><i>#%ID% <!i><gray>was successfully deleted!\"",
+                        "  Notification: \"<yellow><i>%OPERATOR% <!i><gray>unnoted <red><i>%NAME%<!i>\"",
                         "  Clear:",
-                        "    Empty: \"&c&o%NAME% &7has no notes!\"",
-                        "    Done: \"&7Cleared &a&o%COUNT% &7notes\"",
+                        "    Empty: \"<red><i>%NAME% <!i><gray>has no notes!\"",
+                        "    Done: \"<gray>Cleared <green><i>%COUNT% <!i><gray>notes\"",
                         "",
                         "Note:",
-                        "  Usage: \"&cUsage &8» &7&o/note [Name] [Reason]\"",
-                        "  Done: \"&c&o%NAME% &7was successfully noted!\"",
-                        "  Exempt: \"&7You are not able to note &c&o%NAME%\"",
+                        "  Usage: \"<red>Usage <dark_gray>» <gray><i>/note [Name] [Reason]<!i>\"",
+                        "  Done: \"<red><i>%NAME% <!i><gray>was successfully noted!\"",
+                        "  Exempt: \"<gray>You are not able to note <red><i>%NAME%<!i>\"",
                         "  Notification:",
-                        "    - \"&c&o%NAME% &7got noted by &e&o%OPERATOR%\"",
-                        "    - \"&7For the reason &o%REASON%\"",
+                        "    - \"<red><i>%NAME% <!i><gray>got noted by <yellow><i>%OPERATOR%<!i>\"",
+                        "    - \"<gray>For the reason <i>%REASON%<!i>\"",
                         "",
                         "Notes:",
-                        "  Usage: \"&cUsage &8» &7&o/notes [Name] <Page> &cor &7&o/notes <Page>\"",
-                        "  OutOfIndex: \"&cThere is no page %PAGE%!\"",
-                        "  NoEntries: \"&c&o%NAME% has no notes yet\"",
+                        "  Usage: \"<red>Usage <dark_gray>» <gray><i>/notes [Name] <Page> <!i><red>or <gray><i>/notes <Page><!i>\"",
+                        "  OutOfIndex: \"<red>There is no page %PAGE%!\"",
+                        "  NoEntries: \"<red><i>%NAME% has no notes yet<!i>\"",
                         "  Header:",
-                        "    - \"&7\"",
-                        "    - \"%PREFIX% &7Notes for %NAME%:\"",
-                        "    - \"&7\"",
+                        "    - \"<gray>\"",
+                        "    - \"%PREFIX% <gray>Notes for %NAME%:\"",
+                        "    - \"<gray>\"",
                         "  Entry:",
-                        "    - \"&7%DATE% &8| &7By &o%OPERATOR% &7(&c#%ID%&7)\"",
-                        "    - \"&8> &e%REASON%\"",
-                        "    - \"&7\"",
-                        "  Footer: \"&7Page &e&o%CURRENT_PAGE% &7of &e&o%TOTAL_PAGES% &8| &7Notes: &e&o%COUNT%\"",
-                        "  PageFooter: \"&7Use &e&o/notes %NAME% %NEXT_PAGE% &7to see the next page\"",
+                        "    - \"<gray>%DATE% <dark_gray>| <gray>By <i>%OPERATOR% <!i><gray>(<red>#%ID%<gray>)\"",
+                        "    - \"<dark_gray>> <yellow>%REASON%\"",
+                        "    - \"<gray>\"",
+                        "  Footer: \"<gray>Page <yellow><i>%CURRENT_PAGE% <!i><gray>of <yellow><i>%TOTAL_PAGES% <!i><dark_gray>| <gray>Notes: <yellow><i>%COUNT%<!i>\"",
+                        "  PageFooter: \"<gray>Use <yellow><i>/notes %NAME% %NEXT_PAGE% <!i><gray>to see the next page\"",
                         "",
                         "NotesOwn:",
-                        "  OutOfIndex: \"&cThere is no page %PAGE%!\"",
-                        "  NoEntries: \"&c&oYou have no notes yet\"",
+                        "  OutOfIndex: \"<red>There is no page %PAGE%!\"",
+                        "  NoEntries: \"<red><i>You have no notes yet<!i>\"",
                         "  Header:",
-                        "    - \"&7\"",
-                        "    - \"%PREFIX% &7Your notes:\"",
-                        "    - \"&7\"",
+                        "    - \"<gray>\"",
+                        "    - \"%PREFIX% <gray>Your notes:\"",
+                        "    - \"<gray>\"",
                         "  Entry:",
-                        "    - \"&7%DATE% &8| &7By &o%OPERATOR% &7(&c#%ID%&7)\"",
-                        "    - \"&8> &e%REASON%\"",
-                        "    - \"&7\"",
-                        "  Footer: \"&7Page &e&o%CURRENT_PAGE% &7of &e&o%TOTAL_PAGES% &8| &7Notes: &e&o%COUNT%\"",
-                        "  PageFooter: \"&7Use &e&o/notes %NEXT_PAGE% &7to see the next page\""
+                        "    - \"<gray>%DATE% <dark_gray>| <gray>By <i>%OPERATOR% <!i><gray>(<red>#%ID%<gray>)\"",
+                        "    - \"<dark_gray>> <yellow>%REASON%\"",
+                        "    - \"<gray>\"",
+                        "  Footer: \"<gray>Page <yellow><i>%CURRENT_PAGE% <!i><gray>of <yellow><i>%TOTAL_PAGES% <!i><dark_gray>| <gray>Notes: <yellow><i>%COUNT%<!i>\"",
+                        "  PageFooter: \"<gray>Use <yellow><i>/notes %NEXT_PAGE% <!i><gray>to see the next page\""
                 ), true);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -96,26 +96,26 @@ public class UpdateManager {
         if (!mi.contains(mi.getMessages(), "WarnsOwn")) {
             addMessage("ChangeReason:", "", 0);
             addMessage("ChangeReason:", "WarnsOwn:", -1);
-            addMessage("ChangeReason:", "  OutOfIndex: \"&cThere is no page %PAGE%!\"", -1);
-            addMessage("ChangeReason:", "  NoEntries: \"&c&oYou have no warnings yet\"", -1);
+            addMessage("ChangeReason:", "  OutOfIndex: \"<red>There is no page %PAGE%!\"", -1);
+            addMessage("ChangeReason:", "  NoEntries: \"<red><i>You have no warnings yet<!i>\"", -1);
             addMessage("ChangeReason:", "  Header:", -1);
-            addMessage("ChangeReason:", "    - \"%PREFIX% &7Your warnings:\"", -1);
-            addMessage("ChangeReason:", "    - \"&e&oDuration &8| &7&oWarned by\"", -1);
-            addMessage("ChangeReason:", "    - \"&c&o#ID &8> &7&oReason\"", -1);
-            addMessage("ChangeReason:", "    - \"&7\"", -1);
+            addMessage("ChangeReason:", "    - \"%PREFIX% <gray>Your warnings:\"", -1);
+            addMessage("ChangeReason:", "    - \"<yellow><i>Duration <!i><dark_gray>| <gray><i>Warned by<!i>\"", -1);
+            addMessage("ChangeReason:", "    - \"<red><i>#ID <!i><dark_gray>> <gray><i>Reason<!i>\"", -1);
+            addMessage("ChangeReason:", "    - \"<gray>\"", -1);
             addMessage("ChangeReason:", "  Entry:", -1);
-            addMessage("ChangeReason:", "    - \"&8[&e%DATE%&8]\"", -1);
-            addMessage("ChangeReason:", "    - \"&e%DURATION% &8| &7%OPERATOR%\"", -1);
-            addMessage("ChangeReason:", "    - \"&c&l#%ID% &8> &7&o%REASON%\"", -1);
-            addMessage("ChangeReason:", "    - \"&7\"", -1);
-            addMessage("ChangeReason:", "  Footer: \"&7Page &e&o%CURRENT_PAGE% &7of &e&o%TOTAL_PAGES% &8| &7Active warnings: &e&o%COUNT%\"", -1);
-            addMessage("ChangeReason:", "  PageFooter: \"&7Use &e&o/warns %NEXT_PAGE% &7to see the next page\"", -1);
+            addMessage("ChangeReason:", "    - \"<dark_gray>[<yellow>%DATE%<dark_gray>]\"", -1);
+            addMessage("ChangeReason:", "    - \"<yellow>%DURATION% <dark_gray>| <gray>%OPERATOR%\"", -1);
+            addMessage("ChangeReason:", "    - \"<red><b>#%ID% <dark_gray>> <gray><i>%REASON%<!i>\"", -1);
+            addMessage("ChangeReason:", "    - \"<gray>\"", -1);
+            addMessage("ChangeReason:", "  Footer: \"<gray>Page <yellow><i>%CURRENT_PAGE% <!i><gray>of <yellow><i>%TOTAL_PAGES% <!i><dark_gray>| <gray>Active warnings: <yellow><i>%COUNT%<!i>\"", -1);
+            addMessage("ChangeReason:", "  PageFooter: \"<gray>Use <yellow><i>/warns %NEXT_PAGE% <!i><gray>to see the next page\"", -1);
         }
 
         if (!mi.contains(mi.getMessages(), "UnBan.Notification")) {
-            addMessage("UnBan:", "  Notification: \"&e&o%OPERATOR% &7unbanned &c&o%NAME%\"", 1);
-            addMessage("UnMute:", "  Notification: \"&e&o%OPERATOR% &7unmuted &c&o%NAME%\"", 1);
-            addMessage("UnWarn:", "  Notification: \"&e&o%OPERATOR% &7unwarned &c&o%NAME%\"", 1);
+            addMessage("UnBan:", "  Notification: \"<yellow><i>%OPERATOR% <!i><gray>unbanned <red><i>%NAME%<!i>\"", 1);
+            addMessage("UnMute:", "  Notification: \"<yellow><i>%OPERATOR% <!i><gray>unmuted <red><i>%NAME%<!i>\"", 1);
+            addMessage("UnWarn:", "  Notification: \"<yellow><i>%OPERATOR% <!i><gray>unwarned <red><i>%NAME%<!i>\"", 1);
         }
 
         if (!mi.contains(mi.getMessages(), "Check.MuteReason")) {
@@ -123,7 +123,7 @@ public class UpdateManager {
                 File file = new File(mi.getDataFolder(), "Messages.yml");
                 List<String> lines = FileUtils.readLines(file, Charset.defaultCharset());
                 int index = lines.indexOf("Check:");
-                lines.add(index + 1, "  MuteReason: \"  &cReason &8\\xbb &7%REASON%\"");
+                lines.add(index + 1, "  MuteReason: \"  <red>Reason <dark_gray>\\xbb <gray>%REASON%\"");
                 FileUtils.writeLines(file, lines);
             } catch (IOException ex) {
                 ex.printStackTrace();
@@ -135,7 +135,7 @@ public class UpdateManager {
                 File file = new File(mi.getDataFolder(), "Messages.yml");
                 List<String> lines = FileUtils.readLines(file, Charset.defaultCharset());
                 int index = lines.indexOf("Check:");
-                lines.add(index + 1, "  BanReason: \"  &cReason &8\\xbb &7%REASON%\"");
+                lines.add(index + 1, "  BanReason: \"  <red>Reason <dark_gray>\\xbb <gray>%REASON%\"");
                 FileUtils.writeLines(file, lines);
             } catch (IOException ex) {
                 ex.printStackTrace();
@@ -146,27 +146,27 @@ public class UpdateManager {
                 FileUtils.writeLines(new File(mi.getDataFolder(), "Messages.yml"), Arrays.asList(
                         "",
                         "Tempipban:",
-                        "  Usage: \"&cUsage &8\\xbb &7&o/tempipban [Name/IP] [Xmo/Xd/Xh/Xm/Xs/#TimeLayout] [Reason/@Layout]\"",
-                        "  MaxDuration: \"&cYou are not able to ban more than %MAX%sec\"",
+                        "  Usage: \"<red>Usage <dark_gray>\\xbb <gray><i>/tempipban [Name/IP] [Xmo/Xd/Xh/Xm/Xs/#TimeLayout] [Reason/@Layout]<!i>\"",
+                        "  MaxDuration: \"<red>You are not able to ban more than %MAX%sec\"",
                         "  Layout:",
-                        "  - '%PREFIX% &7Temporarily banned'",
-                        "  - '&7'",
-                        "  - '&7'",
-                        "  - \"&cReason &8\\xbb &7%REASON%\"",
-                        "  - \"&cDuration &8\\xbb &7%DURATION%\"",
-                        "  - '&7'",
-                        "  - '&8Unban application in TS or forum'",
-                        "  - \"&eTS-Ip &8\\xbb &c&ncoming soon\"",
-                        "  - \"&eForum &8\\xbb &c&ncoming soon\"",
+                        "  - '%PREFIX% <gray>Temporarily banned'",
+                        "  - '<gray>'",
+                        "  - '<gray>'",
+                        "  - \"<red>Reason <dark_gray>\\xbb <gray>%REASON%\"",
+                        "  - \"<red>Duration <dark_gray>\\xbb <gray>%DURATION%\"",
+                        "  - '<gray>'",
+                        "  - '<dark_gray>Unban application in TS or forum'",
+                        "  - \"<yellow>TS-Ip <dark_gray>\\xbb <red><u>coming soon\"",
+                        "  - \"<yellow>Forum <dark_gray>\\xbb <red><u>coming soon\"",
                         "  Notification:",
-                        "  - \"&c&o%NAME% &7got banned by &e&o%OPERATOR%\"",
-                        "  - \"&7For the reason &o%REASON%\"",
-                        "  - \"&7&oThis player got banned for &e&o%DURATION%\"",
+                        "  - \"<red><i>%NAME% <!i><gray>got banned by <yellow><i>%OPERATOR%<!i>\"",
+                        "  - \"<gray>For the reason <i>%REASON%<!i>\"",
+                        "  - \"<gray><i>This player got banned for <yellow>%DURATION%<!i>\"",
                         "",
                         "ChangeReason:",
-                        "  Usage: \"&cUsage &8\\xbb &7&o/change-reason [ID or ban/mute USER] [New reason]\"",
-                        "  Done: \"&7Punishment &a&o#%ID% &7has successfully been updated!\"",
-                        "  NotFound: \"&cSorry we have not been able to find this punishment\""), true);
+                        "  Usage: \"<red>Usage <dark_gray>\\xbb <gray><i>/change-reason [ID or ban/mute USER] [New reason]<!i>\"",
+                        "  Done: \"<gray>Punishment <green><i>#%ID% <!i><gray>has successfully been updated!\"",
+                        "  NotFound: \"<red>Sorry we have not been able to find this punishment\""), true);
             } catch (IOException e) {
                 e.printStackTrace();
             }

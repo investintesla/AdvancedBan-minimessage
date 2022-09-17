@@ -400,11 +400,11 @@ public enum Command {
                     MessageManager.sendMessage(sender, "Check.IP", false, "IP", ip, "CACHED", ipCached ? cached : notCached);
                 }
                 MessageManager.sendMessage(sender, "Check.Geo", false, "LOCATION", loc == null ? "failed!" : loc);
-                MessageManager.sendMessage(sender, "Check.Mute", false, "DURATION", mute == null ? "§anone" : mute.getType().isTemp() ? "§e" + mute.getDuration(false) : "§cperma");
+                MessageManager.sendMessage(sender, "Check.Mute", false, "DURATION", mute == null ? "<green>none" : mute.getType().isTemp() ? "<yellow>" + mute.getDuration(false) : "<red>perma");
                 if (mute != null) {
                     MessageManager.sendMessage(sender, "Check.MuteReason", false, "REASON", mute.getReason());
                 }
-                MessageManager.sendMessage(sender, "Check.Ban", false, "DURATION", ban == null ? "§anone" : ban.getType().isTemp() ? "§e" + ban.getDuration(false) : "§cperma");
+                MessageManager.sendMessage(sender, "Check.Ban", false, "DURATION", ban == null ? "<green>none" : ban.getType().isTemp() ? "<yellow>" + ban.getDuration(false) : "<red>perma");
                 if (ban != null) {
                     MessageManager.sendMessage(sender, "Check.BanReason", false, "REASON", ban.getReason());
                 }
@@ -422,13 +422,13 @@ public enum Command {
                 MethodInterface mi = Universal.get().getMethods();
                 Calendar calendar = new GregorianCalendar();
                 Object sender = input.getSender();
-                mi.sendMessage(sender, "§c§lAdvancedBan v2 §cSystemPrefs");
-                mi.sendMessage(sender, "§cServer-Time §8» §7" + calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE));
-                mi.sendMessage(sender, "§cYour UUID (Intern) §8» §7" + mi.getInternUUID(sender));
+                mi.sendMessage(sender, "<red><b>AdvancedBan v2 SystemPrefs");
+                mi.sendMessage(sender, "<red>Server-Time <dark_gray>» <gray>" + calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE));
+                mi.sendMessage(sender, "<red>Your UUID (Intern) <dark_gray>» <gray>" + mi.getInternUUID(sender));
                 if (input.hasNext()) {
                     String target = input.getPrimaryData();
-                    mi.sendMessage(sender, "§c" + target + "'s UUID (Intern) §8» §7" + mi.getInternUUID(target));
-                    mi.sendMessage(sender, "§c" + target + "'s UUID (Fetched) §8» §7" + UUIDManager.get().getUUID(target));
+                    mi.sendMessage(sender, "<red>" + target + "'s UUID (Intern) <dark_gray>» <gray>" + mi.getInternUUID(target));
+                    mi.sendMessage(sender, "<red>" + target + "'s UUID (Fetched) <dark_gray>» <gray>" + UUIDManager.get().getUUID(target));
                 }
             },
             null,
@@ -444,59 +444,59 @@ public enum Command {
                     if (input.getPrimaryData().equals("reload")) {
                         if (Universal.get().hasPerms(sender, "ab.reload")) {
                             mi.loadFiles();
-                            mi.sendMessage(sender, "§a§lAdvancedBan §8§l» §7Reloaded!");
+                            mi.sendMessage(sender, "<green><b>AdvancedBan <dark_gray>» <!b><gray>Reloaded!");
                         } else {
                             MessageManager.sendMessage(sender, "General.NoPerms", true);
                         }
                         return;
                     } else if (input.getPrimaryData().equals("help")) {
                         if (Universal.get().hasPerms(sender, "ab.help")) {
-                            mi.sendMessage(sender, "§8");
-                            mi.sendMessage(sender, "§c§lAdvancedBan §7Command-Help");
-                            mi.sendMessage(sender, "§8");
-                            mi.sendMessage(sender, "§c/ban [Name] [Reason/@Layout]");
-                            mi.sendMessage(sender, "§8» §7Ban a user permanently");
-                            mi.sendMessage(sender, "§c/banip [Name/IP] [Reason/@Layout]");
-                            mi.sendMessage(sender, "§8» §7Ban a user by IP");
-                            mi.sendMessage(sender, "§c/tempban [Name] [Xmo/Xd/Xh/Xm/Xs/#TimeLayout] [Reason/@Layout]");
-                            mi.sendMessage(sender, "§8» §7Ban a user temporary");
-                            mi.sendMessage(sender, "§c/mute [Name] [Reason/@Layout]");
-                            mi.sendMessage(sender, "§8» §7Mute a user permanently");
-                            mi.sendMessage(sender, "§c/tempmute [Name] [Xmo/Xd/Xh/Xm/Xs/#TimeLayout] [Reason/@Layout]");
-                            mi.sendMessage(sender, "§8» §7Mute a user temporary");
-                            mi.sendMessage(sender, "§c/warn [Name] [Reason/@Layout]");
-                            mi.sendMessage(sender, "§8» §7Warn a user permanently");
-                            mi.sendMessage(sender, "§c/note [Name] [Note]");
-                            mi.sendMessage(sender, "§8» §7Adds a note to a user");
-                            mi.sendMessage(sender, "§c/tempwarn [Name] [Xmo/Xd/Xh/Xm/Xs/#TimeLayout] [Reason/@Layout]");
-                            mi.sendMessage(sender, "§8» §7Warn a user temporary");
-                            mi.sendMessage(sender, "§c/kick [Name] [Reason/@Layout]");
-                            mi.sendMessage(sender, "§8» §7Kick a user");
-                            mi.sendMessage(sender, "§c/unban [Name/IP]");
-                            mi.sendMessage(sender, "§8» §7Unban a user");
-                            mi.sendMessage(sender, "§c/unmute [Name]");
-                            mi.sendMessage(sender, "§8» §7Unmute a user");
-                            mi.sendMessage(sender, "§c/unwarn [ID] or /unwarn clear [Name]");
-                            mi.sendMessage(sender, "§8» §7Deletes a warn");
-                            mi.sendMessage(sender, "§c/unnote [ID] or /unnote clear [Name]");
-                            mi.sendMessage(sender, "§8» §7Deletes a note");
-                            mi.sendMessage(sender, "§c/change-reason [ID or ban/mute USER] [New reason]");
-                            mi.sendMessage(sender, "§8» §7Changes the reason of a punishment");
-                            mi.sendMessage(sender, "§c/unpunish [ID]");
-                            mi.sendMessage(sender, "§8» §7Deletes a punishment by ID");
-                            mi.sendMessage(sender, "§c/banlist <Page>");
-                            mi.sendMessage(sender, "§8» §7See all punishments");
-                            mi.sendMessage(sender, "§c/history [Name/IP] <Page>");
-                            mi.sendMessage(sender, "§8» §7See a users history");
-                            mi.sendMessage(sender, "§c/warns [Name] <Page>");
-                            mi.sendMessage(sender, "§8» §7See your or a users warnings");
-                            mi.sendMessage(sender, "§c/notes [Name] <Page>");
-                            mi.sendMessage(sender, "§8» §7See your or a users notes");
-                            mi.sendMessage(sender, "§c/check [Name]");
-                            mi.sendMessage(sender, "§8» §7Get all information about a user");
-                            mi.sendMessage(sender, "§c/AdvancedBan <reload/help>");
-                            mi.sendMessage(sender, "§8» §7Reloads the plugin or shows help page");
-                            mi.sendMessage(sender, "§8");
+                            mi.sendMessage(sender, "<dark_gray>");
+                            mi.sendMessage(sender, "<red><b>AdvancedBan <!b><gray>Command-Help");
+                            mi.sendMessage(sender, "<dark_gray>");
+                            mi.sendMessage(sender, "<red>/ban [Name] [Reason/@Layout]");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>Ban a user permanently");
+                            mi.sendMessage(sender, "<red>/banip [Name/IP] [Reason/@Layout]");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>Ban a user by IP");
+                            mi.sendMessage(sender, "<red>/tempban [Name] [Xmo/Xd/Xh/Xm/Xs/#TimeLayout] [Reason/@Layout]");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>Ban a user temporary");
+                            mi.sendMessage(sender, "<red>/mute [Name] [Reason/@Layout]");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>Mute a user permanently");
+                            mi.sendMessage(sender, "<red>/tempmute [Name] [Xmo/Xd/Xh/Xm/Xs/#TimeLayout] [Reason/@Layout]");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>Mute a user temporary");
+                            mi.sendMessage(sender, "<red>/warn [Name] [Reason/@Layout]");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>Warn a user permanently");
+                            mi.sendMessage(sender, "<red>/note [Name] [Note]");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>Adds a note to a user");
+                            mi.sendMessage(sender, "<red>/tempwarn [Name] [Xmo/Xd/Xh/Xm/Xs/#TimeLayout] [Reason/@Layout]");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>Warn a user temporary");
+                            mi.sendMessage(sender, "<red>/kick [Name] [Reason/@Layout]");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>Kick a user");
+                            mi.sendMessage(sender, "<red>/unban [Name/IP]");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>Unban a user");
+                            mi.sendMessage(sender, "<red>/unmute [Name]");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>Unmute a user");
+                            mi.sendMessage(sender, "<red>/unwarn [ID] or /unwarn clear [Name]");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>Deletes a warn");
+                            mi.sendMessage(sender, "<red>/unnote [ID] or /unnote clear [Name]");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>Deletes a note");
+                            mi.sendMessage(sender, "<red>/change-reason [ID or ban/mute USER] [New reason]");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>Changes the reason of a punishment");
+                            mi.sendMessage(sender, "<red>/unpunish [ID]");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>Deletes a punishment by ID");
+                            mi.sendMessage(sender, "<red>/banlist <Page>");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>See all punishments");
+                            mi.sendMessage(sender, "<red>/history [Name/IP] <Page>");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>See a users history");
+                            mi.sendMessage(sender, "<red>/warns [Name] <Page>");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>See your or a users warnings");
+                            mi.sendMessage(sender, "<red>/notes [Name] <Page>");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>See your or a users notes");
+                            mi.sendMessage(sender, "<red>/check [Name]");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>Get all information about a user");
+                            mi.sendMessage(sender, "<red>/AdvancedBan <reload/help>");
+                            mi.sendMessage(sender, "<dark_gray>» <gray>Reloads the plugin or shows help page");
+                            mi.sendMessage(sender, "<dark_gray>");
                         } else {
                             MessageManager.sendMessage(sender, "General.NoPerms", true);
                         }
@@ -505,19 +505,19 @@ public enum Command {
                 }
 
 
-                mi.sendMessage(sender, "§8§l§m-=====§r §c§lAdvancedBan v2 §8§l§m=====-§r ");
-                mi.sendMessage(sender, "  §cDev §8• §7Leoko");
-                mi.sendMessage(sender, "  §cStatus §8• §a§oStable");
-                mi.sendMessage(sender, "  §cVersion §8• §7" + mi.getVersion());
-                mi.sendMessage(sender, "  §cLicense §8• §7Public");
-                mi.sendMessage(sender, "  §cStorage §8• §7" + (DatabaseManager.get().isUseMySQL() ? "MySQL (external)" : "HSQLDB (local)"));
-                mi.sendMessage(sender, "  §cServer §8• §7" + (Universal.get().isBungee() ? "Bungeecord" : "Spigot/Bukkit"));
+                mi.sendMessage(sender, "<dark_gray><b><st>-=====<reset> <red><b>AdvancedBan v2 <dark_gray><b><st>=====-<reset> ");
+                mi.sendMessage(sender, "  <red>Dev <dark_gray>• <gray>Leoko");
+                mi.sendMessage(sender, "  <red>Status <dark_gray>• <green><i>Stable");
+                mi.sendMessage(sender, "  <red>Version <dark_gray>• <gray>" + mi.getVersion());
+                mi.sendMessage(sender, "  <red>License <dark_gray>• <gray>Public");
+                mi.sendMessage(sender, "  <red>Storage <dark_gray>• <gray>" + (DatabaseManager.get().isUseMySQL() ? "MySQL (external)" : "HSQLDB (local)"));
+                mi.sendMessage(sender, "  <red>Server <dark_gray>• <gray>" + (Universal.get().isBungee() ? "Bungeecord" : "Spigot/Bukkit"));
                 if (Universal.get().isBungee()) {
-                    mi.sendMessage(sender, "  §cRedisBungee §8• §7" + (Universal.isRedis() ? "true" : "false"));
+                    mi.sendMessage(sender, "  <red>RedisBungee <dark_gray>• <gray>" + (Universal.isRedis() ? "true" : "false"));
                 }
-                mi.sendMessage(sender, "  §cUUID-Mode §8• §7" + UUIDManager.get().getMode());
-                mi.sendMessage(sender, "  §cPrefix §8• §7" + (mi.getBoolean(mi.getConfig(), "Disable Prefix", false) ? "" : MessageManager.getMessage("General.Prefix")));
-                mi.sendMessage(sender, "§8§l§m-=========================-§r ");
+                mi.sendMessage(sender, "  <red>UUID-Mode <dark_gray>• <gray>" + UUIDManager.get().getMode());
+                mi.sendMessage(sender, "  <red>Prefix <dark_gray>• <gray>" + (mi.getBoolean(mi.getConfig(), "Disable Prefix", false) ? "" : MessageManager.getMessage("General.Prefix")));
+                mi.sendMessage(sender, "<dark_gray><b><st>-=========================-<reset> ");
             },
             null,
             "advancedban");

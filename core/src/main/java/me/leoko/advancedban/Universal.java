@@ -93,22 +93,22 @@ public class Universal {
         }
 
         if (mi.getBoolean(mi.getConfig(), "DetailedEnableMessage", true)) {
-            mi.log("\n \n&8[]=====[&7Enabling AdvancedBan&8]=====[]&r"
-                    + "\n&8| &cInformation:&r"
-                    + "\n&8|   &cName: &7AdvancedBan&r"
-                    + "\n&8|   &cDeveloper: &7Leoko&r"
-                    + "\n&8|   &cVersion: &7" + mi.getVersion() + "&r"
-                    + "\n&8|   &cStorage: &7" + (DatabaseManager.get().isUseMySQL() ? "MySQL (external)" : "HSQLDB (local)") + "&r"
-                    + "\n&8| &cSupport:&r"
-                    + "\n&8|   &cGithub: &7https://github.com/DevLeoko/AdvancedBan/issues &r"
-                    + "\n&8|   &cDiscord: &7https://discord.gg/ycDG6rS &r"
-                    + "\n&8| &cTwitter: &7@LeokoGar&r"
-                    + "\n&8| &cUpdate:&r"
-                    + "\n&8|   &7" + upt  + "&r"
-                    + "\n&8[]================================[]&r\n ");
+            mi.log("\n \n<dark_gray>[]=====[<gray>Enabling AdvancedBan<dark_gray>]=====[]<reset>"
+                    + "\n<dark_gray>| <red>Information:<reset>"
+                    + "\n<dark_gray>|   <red>Name: <gray>AdvancedBan<reset>"
+                    + "\n<dark_gray>|   <red>Developer: <gray>Leoko<reset>"
+                    + "\n<dark_gray>|   <red>Version: <gray>" + mi.getVersion() + "<reset>"
+                    + "\n<dark_gray>|   <red>Storage: <gray>" + (DatabaseManager.get().isUseMySQL() ? "MySQL (external)" : "HSQLDB (local)") + "<reset>"
+                    + "\n<dark_gray>| <red>Support:<reset>"
+                    + "\n<dark_gray>|   <red>Github: <gray>https://github.com/DevLeoko/AdvancedBan/issues <reset>"
+                    + "\n<dark_gray>|   <red>Discord: <gray>https://discord.gg/ycDG6rS <reset>"
+                    + "\n<dark_gray>| <red>Twitter: <gray>@LeokoGar<reset>"
+                    + "\n<dark_gray>| <red>Update:<reset>"
+                    + "\n<dark_gray>|   <gray>" + upt  + "<reset>"
+                    + "\n<dark_gray>[]================================[]<reset>\n ");
         } else {
-            mi.log("&cEnabling AdvancedBan on Version &7&r" + mi.getVersion());
-            mi.log("&cCoded by &7Leoko &8| &7Twitter: @LeokoGar&r");
+            mi.log("<red>Enabling AdvancedBan on Version <gray><reset>" + mi.getVersion());
+            mi.log("<red>Coded by <gray>Leoko <dark_gray>| <gray>Twitter: @LeokoGar<reset>");
         }
     }
 
@@ -119,20 +119,20 @@ public class Universal {
         DatabaseManager.get().shutdown();
 
         if (mi.getBoolean(mi.getConfig(), "DetailedDisableMessage", true)) {
-            mi.log("\n \n&8[]=====[&7Disabling AdvancedBan&8]=====[]"
-                    + "\n&8| &cInformation:"
-                    + "\n&8|   &cName: &7AdvancedBan"
-                    + "\n&8|   &cDeveloper: &7Leoko"
-                    + "\n&8|   &cVersion: &7" + getMethods().getVersion()
-                    + "\n&8|   &cStorage: &7" + (DatabaseManager.get().isUseMySQL() ? "MySQL (external)" : "HSQLDB (local)")
-                    + "\n&8| &cSupport:"
-                    + "\n&8|   &cGithub: &7https://github.com/DevLeoko/AdvancedBan/issues"
-                    + "\n&8|   &cDiscord: &7https://discord.gg/ycDG6rS"
-                    + "\n&8| &cTwitter: &7@LeokoGar"
-                    + "\n&8[]================================[]&r\n ");
+            mi.log("\n \n<dark_gray>[]=====[<gray>Disabling AdvancedBan<dark_gray>]=====[]"
+                    + "\n<dark_gray>| <red>Information:"
+                    + "\n<dark_gray>|   <red>Name: <gray>AdvancedBan"
+                    + "\n<dark_gray>|   <red>Developer: <gray>Leoko"
+                    + "\n<dark_gray>|   <red>Version: <gray>" + getMethods().getVersion()
+                    + "\n<dark_gray>|   <red>Storage: <gray>" + (DatabaseManager.get().isUseMySQL() ? "MySQL (external)" : "HSQLDB (local)")
+                    + "\n<dark_gray>| <red>Support:"
+                    + "\n<dark_gray>|   <red>Github: <gray>https://github.com/DevLeoko/AdvancedBan/issues"
+                    + "\n<dark_gray>|   <red>Discord: <gray>https://discord.gg/ycDG6rS"
+                    + "\n<dark_gray>| <red>Twitter: <gray>@LeokoGar"
+                    + "\n<dark_gray>[]================================[]<reset>\n ");
         } else {
-            mi.log("&cDisabling AdvancedBan on Version &7" + getMethods().getVersion());
-            mi.log("&cCoded by Leoko &8| &7Twitter: @LeokoGar");
+            mi.log("<red>Disabling AdvancedBan on Version <gray>" + getMethods().getVersion());
+            mi.log("<red>Coded by Leoko <dark_gray>| <gray>Twitter: @LeokoGar");
         }
     }
 
@@ -350,7 +350,7 @@ public class Universal {
      * @param msg the msg
      */
     public void log(String msg) {
-        mi.log("§8[§cAdvancedBan§8] §7" + msg);
+        mi.log("<dark_gray>[<red>AdvancedBan<dark_gray>] <gray>" + msg);
         debugToFile(msg);
     }
 
@@ -361,7 +361,7 @@ public class Universal {
      */
     public void debug(Object msg) {
         if (mi.getBoolean(mi.getConfig(), "Debug", false)) {
-            mi.log("§8[§cAdvancedBan§8] §cDebug: §7" + msg.toString());
+            mi.log("<dark_gray>[<red>AdvancedBan<dark_gray>] <red>Debug: <gray>" + msg.toString());
         }
         debugToFile(msg);
     }
@@ -380,9 +380,9 @@ public class Universal {
      */
     public void debugSqlException(SQLException ex) {
         if (mi.getBoolean(mi.getConfig(), "Debug", false)) {
-            debug("§7An error has occurred with the database, the error code is: '" + ex.getErrorCode() + "'");
-            debug("§7The state of the sql is: " + ex.getSQLState());
-            debug("§7Error message: " + ex.getMessage());
+            debug("<gray>An error has occurred with the database, the error code is: '" + ex.getErrorCode() + "'");
+            debug("<gray>The state of the sql is: " + ex.getSQLState());
+            debug("<gray>Error message: " + ex.getMessage());
         }
         debugException(ex);
     }

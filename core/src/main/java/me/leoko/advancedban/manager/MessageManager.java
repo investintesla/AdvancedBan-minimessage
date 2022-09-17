@@ -36,7 +36,7 @@ public class MessageManager {
                     + "\n  - Visit yamllint.com to  validate your Message.yml"
                     + "\n  - Delete the message file and restart the server");
         } else {
-            str = replace(str, parameters).replace('&', '§');
+            str = replace(str, parameters);
         }
         return str;
     }
@@ -75,7 +75,7 @@ public class MessageManager {
         if (mi.contains(file, path)) {
             List<String> list = new ArrayList<>();
             for (String str : mi.getStringList(file, path)) {
-                list.add(replace(str, parameters).replace('&', '§'));
+                list.add(replace(str, parameters));
             }
             return list;
         }

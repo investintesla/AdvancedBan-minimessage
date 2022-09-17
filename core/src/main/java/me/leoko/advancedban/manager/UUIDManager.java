@@ -252,7 +252,7 @@ public class UUIDManager {
         /**
          * Tries to resolve the UUID using the {@link #INTERN} fetcher and uses the
          * {@link #RESTFUL} fetcher as a fallback.<br>
-         * <b>Recommended for:</b> Spigot &amp; Bungeecord Servers running in online mode.
+         * <b>Recommended for:</b> Spigot <green>mp; Bungeecord Servers running in online mode.
          */
         MIXED,
 

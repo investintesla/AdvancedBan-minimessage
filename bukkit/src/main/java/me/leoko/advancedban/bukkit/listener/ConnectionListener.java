@@ -39,10 +39,10 @@ public class ConnectionListener implements Listener {
                 Bukkit.getScheduler().runTaskLaterAsynchronously(BukkitMain.get(), () -> {
                     if (Universal.get().broadcastLeoko()) {
                         Bukkit.broadcastMessage("");
-                        Bukkit.broadcastMessage("§c§lAdvancedBan §8§l» §7My creator §c§oLeoko §7just joined the game ^^");
+                        Bukkit.broadcastMessage("<red><b>AdvancedBan <dark_gray>» <!b><gray>My creator <red><i>Leoko <!i><gray>just joined the game ^^");
                         Bukkit.broadcastMessage("");
                     } else {
-                        event.getPlayer().sendMessage("§c§lAdvancedBan v2 §8§l» §cHey Leoko we are using your Plugin (NO-BC)");
+                        event.getPlayer().sendMessage("<red><b>AdvancedBan v2 <dark_gray>» <!b><red>Hey Leoko we are using your Plugin (NO-BC)");
                     }
                 }, 20);
             }

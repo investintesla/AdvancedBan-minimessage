@@ -11,6 +11,8 @@ import me.leoko.advancedban.manager.UUIDManager;
 import me.leoko.advancedban.utils.Permissionable;
 import me.leoko.advancedban.utils.Punishment;
 import me.leoko.advancedban.utils.tabcompletion.TabCompleter;
+import net.kyori.adventure.audience.Audience;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -173,9 +175,10 @@ public class BukkitMethods implements MethodInterface {
         }
     }
 
+    MiniMessage mini = MiniMessage.miniMessage();
     @Override
     public void sendMessage(Object player, String msg) {
-        ((CommandSender) player).sendMessage(msg);
+        ((Audience) player).sendMessage(mini.deserialize(msg));
     }
 
     @Override
@@ -390,7 +393,9 @@ public class BukkitMethods implements MethodInterface {
 
     @Override
     public void log(String msg) {
-        Bukkit.getServer().getConsoleSender().sendMessage(msg.replaceAll("&", "§"));
+        MiniMessage mini = MiniMessage.miniMessage();
+        Audience console = (Audience) Bukkit.getServer().getConsoleSender();
+        console.sendMessage(mini.deserialize(msg));
     }
 
     @Override
