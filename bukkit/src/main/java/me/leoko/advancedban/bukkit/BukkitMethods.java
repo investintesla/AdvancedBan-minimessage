@@ -393,9 +393,7 @@ public class BukkitMethods implements MethodInterface {
 
     @Override
     public void log(String msg) {
-        MiniMessage mini = MiniMessage.miniMessage();
-        Audience console = (Audience) Bukkit.getServer().getConsoleSender();
-        console.sendMessage(mini.deserialize(msg));
+        ((Audience) Bukkit.getServer().getConsoleSender()).sendMessage(mini.deserialize(msg));
     }
 
     @Override
